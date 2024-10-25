@@ -11,6 +11,11 @@
             font-family: 'Arial', sans-serif;
             text-align: center;
             margin: 0;
+            height: 100vh; /* Para que ocupe toda la altura de la pantalla */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         h1 {
             font-size: 4em;
@@ -25,13 +30,6 @@
             color: #e6e6e6;
             max-width: 800px;
         }
-        .featured-image {
-            max-width: 90%;
-            height: auto;
-            border: 5px solid #ffa500;
-            box-shadow: 5px 5px 15px black;
-            margin: 20px auto;
-        }
         .invite-button {
             background-color: #ff3f3f;
             color: white;
@@ -42,17 +40,35 @@
             display: inline-block;
             margin-top: 20px;
             transition: background-color 0.3s ease;
+            cursor: pointer;
         }
         .invite-button:hover {
             background-color: #e63946;
+        }
+        .hidden {
+            display: none;
+        }
+        .gif-container {
+            margin-top: 20px;
         }
         @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
     </style>
 </head>
 <body>
     <h1>🎃 Aquelarrito Horror Night 🎃</h1>
-    <img src="aquelarrito_horror_night.jpg" alt="Fiesta Aquelarrito" class="featured-image">
     <p>Prepárate para una noche llena de misterio, horror, y diversión en nuestra esperada fiesta Aquelarrito Horror Night. Este evento exclusivo es solo para los invitados más valientes. ¿Estás listo para enfrentarte a tus peores miedos?</p>
-    <a href="invitados.html" class="invite-button">Ver Lista de Invitados</a>
+    <button class="invite-button" onclick="showGif()">Ver Lista de Invitados</button>
+
+    <div class="gif-container hidden" id="gifContainer">
+        <img src="https://media.tenor.com/images/ef1e270261fb7bb74db3968655117af4/tenor.gif" alt="GIF aterrador" id="scaryGif" style="max-width: 100%; height: auto;">
+        <p>Picaste, bandía. En la fiesta te espera más.</p>
+    </div>
+
+    <script>
+        function showGif() {
+            document.getElementById('gifContainer').classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
+
